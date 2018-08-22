@@ -11,6 +11,9 @@ class HolaServer {
     func start() {
         server["/"] = scopes {
             html {
+                head {
+                    meta { charset = "UTF-8" }
+                }
                 body {
                     h1 { inner = "¡Hola!".utf8.description }
                 }
