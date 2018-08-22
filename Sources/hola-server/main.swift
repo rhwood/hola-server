@@ -15,7 +15,10 @@ class HolaServer {
                     meta { charset = "UTF-8" }
                 }
                 body {
-                    h1 { inner = "¡Hola!".utf8.description }
+                    h1 {
+                        style = "text-align: center";
+                        inner = "¡Hola!"
+                    }
                 }
             }
         }
