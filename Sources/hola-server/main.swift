@@ -21,11 +21,21 @@ class HolaServer {
             html {
                 head {
                     meta { charset = "UTF-8" }
+                    element("meta",
+                            ["viewport": "width=device-width, initial-scale=1.0, user-scalable=yes"],
+                            {}
+                    )
                 }
                 body {
+                    style = "background: #408000; color: #FFFFFF"
                     h1 {
-                        style = "text-align: center";
                         inner = "¡Hola!"
+                    }
+                    p {
+                        inner = "Hola Browser discovers running HTTP services ."
+                    }
+                    p {
+                        inner = "Source code at <a href=\"https://github.com/rhwood/hola-server\">https://github.com/rhwood/hola-server</a>."
                     }
                 }
             }
