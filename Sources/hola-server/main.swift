@@ -14,9 +14,6 @@ class HolaServer {
         self.port = port
         bonjour = NetService(domain: "local.", type: "_http._tcp.", name: "Local Service", port: Int32(port))
         bonjour.setTXTRecord(NetService.data(fromTXTRecord: ["path": "/service".data(using: .utf8)!]))
-    }
-    
-    func start() {
         server["/service"] = scopes {
             html {
                 head {
@@ -41,6 +38,9 @@ class HolaServer {
             }
         }
         server["/files/:path"] = directoryBrowser("/")
+    }
+    
+    func start() {
         do {
             try server.start(port, forceIPv4: true)
             print("Server has started ( port = \(try server.port()) ). Try to connect now...")
