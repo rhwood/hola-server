@@ -66,4 +66,10 @@ Signals.trap(signal: .int) { signal in
     Signals.raise(signal: .int)
 }
 
+Signals.trap(signal: .kill) { signal in
+    server.stop()
+    Signals.restore(signal: .kill)
+    Signals.raise(signal: .kill)
+}
+
 server.start()
