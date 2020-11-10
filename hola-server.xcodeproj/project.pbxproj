@@ -27,7 +27,7 @@
 		OBJ_101 /* Swifter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "Swifter::Swifter::Product" /* Swifter.framework */; };
 		OBJ_109 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_6 /* Package.swift */; };
 		OBJ_120 /* XCTestManifests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_12 /* XCTestManifests.swift */; };
-		OBJ_121 /* holaServerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_13 /* holaServerTests.swift */; };
+		OBJ_121 /* HolaServerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_13 /* HolaServerTests.swift */; };
 		OBJ_123 /* Signals.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "Signals::Signals::Product" /* Signals.framework */; };
 		OBJ_124 /* Swifter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "Swifter::Swifter::Product" /* Swifter.framework */; };
 		OBJ_53 /* Signals.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_17 /* Signals.swift */; };
@@ -103,7 +103,7 @@
 
 /* Begin PBXFileReference section */
 		OBJ_12 /* XCTestManifests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XCTestManifests.swift; sourceTree = "<group>"; };
-		OBJ_13 /* holaServerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = holaServerTests.swift; sourceTree = "<group>"; };
+		OBJ_13 /* HolaServerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HolaServerTests.swift; sourceTree = "<group>"; };
 		OBJ_17 /* Signals.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Signals.swift; sourceTree = "<group>"; };
 		OBJ_18 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = Package.swift; path = "/Users/rhwood/Documents/GitHub/hola-server/.build/checkouts/BlueSignals.git--8086904482231622196/Package.swift"; sourceTree = "<group>"; };
 		OBJ_22 /* DemoServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DemoServer.swift; sourceTree = "<group>"; };
@@ -185,7 +185,7 @@
 			isa = PBXGroup;
 			children = (
 				OBJ_12 /* XCTestManifests.swift */,
-				OBJ_13 /* holaServerTests.swift */,
+				OBJ_13 /* HolaServerTests.swift */,
 			);
 			name = "hola-serverTests";
 			path = "Tests/hola-serverTests";
@@ -486,7 +486,7 @@
 			buildActionMask = 0;
 			files = (
 				OBJ_120 /* XCTestManifests.swift in Sources */,
-				OBJ_121 /* holaServerTests.swift in Sources */,
+				OBJ_121 /* HolaServerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
