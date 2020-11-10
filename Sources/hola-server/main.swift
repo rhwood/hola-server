@@ -13,8 +13,10 @@ class HolaServer {
     init(_ port: UInt16) {
         self.port = port
         bonjour = NetService(domain: "local.", type: "_http._tcp.", name: "Local Service", port: Int32(port))
-        bonjour.setTXTRecord(NetService.data(fromTXTRecord: ["path": "/service".data(using: .utf8)!]))
-        server["/service"] = scopes {
+        let service = "/service"
+        let files = "/files/:path"
+        bonjour.setTXTRecord(NetService.data(fromTXTRecord: ["path": service.data(using: .utf8)!]))
+        server[service] = scopes {
             html {
                 head {
                     meta { charset = "UTF-8" }
@@ -37,7 +39,7 @@ class HolaServer {
                 }
             }
         }
-        server["/files/:path"] = directoryBrowser("/")
+        server[files] = directoryBrowser("/")
     }
     
     func start() {
