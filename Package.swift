@@ -3,12 +3,14 @@
 
 import PackageDescription
 
+let projectName = "hola-server"
+
 let package = Package(
-    name: "hola-server",
+    name: projectName,
     products: [
         .executable(
-            name: "hola-server",
-            targets: ["hola-server"])
+            name: projectName,
+            targets: [projectName])
     ],
     dependencies: [
         // Dependencies declare other packages that this package depends on.
@@ -20,10 +22,10 @@ let package = Package(
         // Targets are the basic building blocks of a package. A target can define a module or a test suite.
         // Targets can depend on other targets in this package, and on products in packages which this package depends on.
         .target(
-            name: "hola-server",
+            name: projectName,
             dependencies: ["Swifter", "Signals"]),
         .testTarget(
             name: "hola-serverTests",
-            dependencies: ["hola-server"]),
+            dependencies: [projectName]),
     ]
 )
