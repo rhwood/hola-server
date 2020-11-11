@@ -997,8 +997,8 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/IBM-Swift/BlueSignals.git";
 			requirement = {
-				kind = upToNextMinorVersion;
-				minimumVersion = 1.0.21;
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.200;
 			};
 		};
 		48759022237734A100649827 /* XCRemoteSwiftPackageReference "swifter" */ = {
@@ -1006,7 +1006,7 @@
 			repositoryURL = "https://github.com/httpswift/swifter.git";
 			requirement = {
 				kind = upToNextMajorVersion;
-				minimumVersion = 1.4.7;
+				minimumVersion = 1.5.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
