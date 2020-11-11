@@ -2,6 +2,7 @@ import Foundation
 import Dispatch
 import Signals
 import Swifter
+import ArgumentParser
 
 class HolaServer {
     
@@ -60,7 +61,18 @@ class HolaServer {
     }
 }
 
-let server = HolaServer(9090)
+struct Main: ParsableCommand {
+
+    @Argument
+    var port = 9090
+
+    mutating func run() throws {
+        server = HolaServer(UInt16(port))
+        server.start()
+    }
+}
+
+var server: HolaServer
 
 Signals.trap(signal: .int) { signal in
     server.stop()
@@ -74,4 +86,4 @@ Signals.trap(signal: .kill) { signal in
     Signals.raise(signal: .kill)
 }
 
-server.start()
+Main.main()
