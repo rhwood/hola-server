@@ -2,31 +2,30 @@ import XCTest
 import class Foundation.Bundle
 
 final class HolaServerTests: XCTestCase {
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct
-        // results.
+
+    func testLaunch() throws {
+        // Test that the tool can be launched with default arguments
 
         // Some of the APIs that we use below are available in macOS 10.13 and above.
         guard #available(macOS 10.13, *) else {
             return
         }
 
-        let fooBinary = productsDirectory.appendingPathComponent("hola_server")
+        let server = productsDirectory.appendingPathComponent("hola-server")
 
         let process = Process()
-        process.executableURL = fooBinary
+        process.executableURL = server
 
         let pipe = Pipe()
         process.standardOutput = pipe
 
         try process.run()
+        process.interrupt()
         process.waitUntilExit()
 
-        let data = pipe.fileHandleForReading.readDataToEndOfFile()
-        let output = String(data: data, encoding: .utf8)
+        let status = process.terminationStatus
 
-        XCTAssertEqual(output, "Hello, world!\n")
+        XCTAssertEqual(status, 2)
     }
 
     /// Returns path to the built products directory.
@@ -42,6 +41,6 @@ final class HolaServerTests: XCTestCase {
     }
 
     static var allTests = [
-        ("testExample", testExample),
+        ("testLaunch", testLaunch),
     ]
 }
