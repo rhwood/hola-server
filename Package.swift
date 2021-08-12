@@ -3,14 +3,12 @@
 
 import PackageDescription
 
-let projectName = "hola-server"
-
 let package = Package(
-    name: projectName,
+    name: "hola-server",
     products: [
         .executable(
-            name: projectName,
-            targets: [projectName])
+            name: "hola-server",
+            targets: ["hola-server"])
     ],
     dependencies: [
         .package(url: "https://github.com/httpswift/swifter.git", .upToNextMajor(from: "1.5.0")),
@@ -19,7 +17,7 @@ let package = Package(
     ],
     targets: [
         .target(
-            name: projectName,
+            name: "hola-server",
             dependencies: [
                 "Swifter",
                 "Signals",
@@ -27,6 +25,6 @@ let package = Package(
             ]),
         .testTarget(
             name: "hola-serverTests",
-            dependencies: [projectName])
+            dependencies: ["hola-server"])
     ]
 )
