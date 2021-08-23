@@ -3,7 +3,7 @@
     "pins": [
       {
         "package": "Signals",
-        "repositoryURL": "https://github.com/IBM-Swift/BlueSignals.git",
+        "repositoryURL": "https://github.com/Kitura/BlueSignals.git",
         "state": {
           "branch": null,
           "revision": "1f6c49e186c8a4eeef87ba14f2f97b8646559d13",
