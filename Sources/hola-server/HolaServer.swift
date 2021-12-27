@@ -7,6 +7,7 @@
 
 import Foundation
 import Dispatch
+import Logging
 import Swifter
 
 class HolaServer {
@@ -15,6 +16,7 @@ class HolaServer {
     let bonjour: NetService!
     let server = HttpServer()
     let semaphore = DispatchSemaphore(value: 0)
+    let logger = Logger(label: "HolaServer")
 
     init(_ port: UInt16) {
         self.port = port
@@ -51,11 +53,12 @@ class HolaServer {
     func start() {
         do {
             try server.start(port, forceIPv4: true)
-            print("Server has started ( port = \(try server.port()) ). Try to connect now...")
+            let port = try server.port()
+            logger.info("Server has started at port \(port). Try to connect now...")
             bonjour.publish()
             semaphore.wait()
         } catch {
-            print("Server start error: \(error)")
+            logger.error("Server start error: \(error)")
             semaphore.signal()
         }
     }
