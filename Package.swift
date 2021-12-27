@@ -12,8 +12,8 @@ let package = Package(
     ],
     dependencies: [
         .package(name: "Swifter", url: "https://github.com/httpswift/swifter.git", .upToNextMajor(from: "1.5.0")),
-        .package(name: "Signals", url: "https://github.com/Kitura/BlueSignals.git", .upToNextMajor(from: "1.0.200")),
-        .package(url: "https://github.com/apple/swift-argument-parser", .upToNextMajor(from: "0.4.4"))
+        .package(name: "Signals", url: "https://github.com/Kitura/BlueSignals.git", .upToNextMajor(from: "2.0.0")),
+        .package(url: "https://github.com/apple/swift-argument-parser", .upToNextMajor(from: "1.0.2"))
     ],
     targets: [
         .target(
