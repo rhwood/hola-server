@@ -12,15 +12,15 @@ let package = Package(
     ],
     dependencies: [
         .package(name: "Swifter", url: "https://github.com/httpswift/swifter.git", .upToNextMajor(from: "1.5.0")),
-        .package(name: "Signals", url: "https://github.com/Kitura/BlueSignals.git", .upToNextMajor(from: "2.0.0")),
+        .package(url: "https://github.com/swift-server/swift-service-lifecycle.git", from: "1.0.0-alpha"),
         .package(url: "https://github.com/apple/swift-argument-parser", .upToNextMajor(from: "1.0.2"))
     ],
     targets: [
         .target(
             name: "hola-server",
             dependencies: [
-                .product(name: "Swifter", package: "Swifter"),
-                "Signals",
+                "Swifter",
+                .product(name: "Lifecycle", package: "swift-service-lifecycle"),
                 .product(name: "ArgumentParser", package: "swift-argument-parser")
             ]),
         .testTarget(

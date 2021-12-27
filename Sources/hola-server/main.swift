@@ -1,5 +1,5 @@
 import Foundation
-import Signals
+import Lifecycle
 import ArgumentParser
 
 struct Main: ParsableCommand {
@@ -8,17 +8,15 @@ struct Main: ParsableCommand {
     var port = 9090
 
     mutating func run() throws {
-        server = HolaServer(UInt16(port))
+        let server = HolaServer(UInt16(port))
+        let lifecycle = ServiceLifecycle()
+        lifecycle.register(
+            label: "HolaServer",
+            start: .sync(server.start),
+            shutdown: .sync(server.stop)
+        )
         server.start()
     }
-}
-
-var server: HolaServer
-
-Signals.trap(signals: [.int, .kill]) { signal in
-    server.stop()
-    Signals.restore(signal: .user(Int(signal)))
-    Signals.raise(signal: .user(Int(signal)))
 }
 
 Main.main()
