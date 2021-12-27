@@ -53,7 +53,6 @@ class HolaServer {
     func start() {
         do {
             try server.start(port, forceIPv4: true)
-            let port = try server.port()
             logger.info("Server has started at port \(port). Try to connect now...")
             bonjour.publish()
             semaphore.wait()
